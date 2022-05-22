@@ -1,7 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 const Navbar = () => {
+  //useSelector hook to get access the state so that we can update the state of the store
+  //in useSelector  we need to pass the object which we want to subscribe
+
+  //subscribe-->whenever the state is updated or change it will notify us without asking for it i.e. it returns the updated state after re-rendering the content automatically
+
+  //here state whole state is passed insinde the useSelector so of that state-->cart is accessed so for counting the number we may use items.length afterwards so inside cart it is [] initially so after adding it will have some product eventually
+    const items = useSelector(state=>state.cart)
+
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -19,7 +28,7 @@ const Navbar = () => {
                                 <Link className="nav-link" to="/cart">Cart</Link>
                             </li>
                         </ul>
-                         <p>Cart Items: 0</p>
+                         <p>Cart Items: {items.length}</p>
                     </div>
                 </div>
             </nav>

@@ -6,15 +6,19 @@ import {
 import Navbar from './Component/Navbar'
 import Home from './Pages/Home'
 import Cart from './Pages/Cart'
+import store from "./store/store";
+import {Provider} from 'react-redux'
 
 function App() {
   return (
          <BrowserRouter>
-              <Navbar/>
-              <Routes>
-                   <Route exact path="/" element={<Home/>}/>
-                   <Route exact path="/cart" element={<Cart/>}/>
-              </Routes>
+             <Provider store={store}>
+                 <Navbar/>
+                 <Routes>
+                      <Route exact path="/" element={<Home/>}/>
+                      <Route exact path="/cart" element={<Cart/>}/>
+                 </Routes>
+              </Provider>
          </BrowserRouter>
   );
 }
